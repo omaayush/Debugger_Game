@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Page</title>
+<style>
+body {
+    background-image:url(comp2.jpg);
+}
+.p{
+	color:white;
+	text-align:center;
+	font-size:50px;
+}
+.resizedTextbox {
+width: 700px;
+height: 800px;
+ margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+</head>
+<body>
+
+<p style="color:white; text-align:center; font-size:30px;" >
+
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+Each element in the array represents your maximum jump length at that position.
+Following program checks if it is possible to reach the last index.
+
+<br>Sample Input 1:
+<br>5
+<br>2 3 1 1 4
+
+<br>Sample Output 2:
+<br>Possible
+
+<br>Sample Input 2:
+<br>5
+<br>2 1 0 4
+
+<br>Sample Output 2:
+<br>Not Possible
+</p>
+<div align="center">
+<textarea rows="60" cols="100" oncontextmenu="return false;">
+
+
+#include<stdio.h>
+
+int n,ans=0;
+
+void canJump(int arr[],int i)
+{
+    int j;
+    if(i==n-1)
+    {
+        ans = 1;
+        return;
+    }
+
+    for(j=1;j<=arr[i];j++)
+        if((i+j)>n)
+            canJump(arr,i+j);
+    return;
+}
+
+int main()
+{
+    scanf("%d",&n);
+    int i,j;
+    int arr = malloc (sizeof (int) * n);
+
+    for(i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+
+    canJump(arr,0);
+
+    if(ans=1)
+        printf("Not Possible");
+    else
+        printf("Possible");
+
+    return 0;
+}
+</textarea>
+</div>
+</br>
+</br>
+<div class="row">
+	<a href="csi.html"><center>
+	<img  src="reset1.jpg" style="width:250px;;height:70px;"><center>
+	</a>
+</div>
+</body>
+</html>
+
+
+
+
+
